@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class ArudUser {
-  Future<void> addUser(
+class ArudData {
+  Future<void> addData(
       {required String documentName,
       required Map<String, dynamic> data,
       required String userUid}) async {
@@ -12,7 +12,7 @@ class ArudUser {
     );
   }
 
-  Future<Map<String, dynamic>> getUser(
+  Future<Map<String, dynamic>> getData(
       {required String documentName, required String useruid}) async {
     var user = await FirebaseFirestore.instance
         .collection(documentName)

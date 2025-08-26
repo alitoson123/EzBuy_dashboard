@@ -21,7 +21,7 @@ class _IsFeaturedCheckBoxState extends State<IsFeaturedCheckBox> {
           TextSpan(
             children: [
               TextSpan(
-                text: 'is Featured Item?',
+                text: 'is Favotite Item?',
                 style: TextStyles.semiBold13.copyWith(
                   color: const Color(0xFF949D9E),
                 ),

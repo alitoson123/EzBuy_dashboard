@@ -5,7 +5,6 @@ import 'package:e_commerce_dash_board_app/Features/Add_product/Presentation/View
 import 'package:e_commerce_dash_board_app/Features/Add_product/Presentation/Views/widgets/is_featured_check_box.dart';
 import 'package:e_commerce_dash_board_app/Features/Add_product/Presentation/Views/widgets/is_organic_check_box.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 class AddProductViewBody extends StatefulWidget {
@@ -19,11 +18,11 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  late String name, code, description;
-  late num price, expirationMonths, numberOfCalories, unitAmount;
+  late String name, code, description , categoryName;
+  late num price;
   File? image;
-  bool isFeatured = false;
-  bool isOrganic = false;
+  bool isFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -53,8 +52,17 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               ),
               const SizedBox(
                 height: 16,
+              ),CustomTextFormField(
+                onSaved: (value) {
+                  categoryName = value!;
+                },
+                hintText: 'Category Name',
+                textInputType: TextInputType.text,
               ),
-              CustomTextFormField(
+              const SizedBox(
+                height: 16,
+              ),
+              /*CustomTextFormField(
                 onSaved: (value) {
                   expirationMonths = num.parse(value!);
                 },
@@ -83,7 +91,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               ),
               const SizedBox(
                 height: 16,
-              ),
+              ),*/
               CustomTextFormField(
                 onSaved: (value) {
                   code = value!.toLowerCase();
@@ -105,17 +113,17 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               const SizedBox(
                 height: 16,
               ),
-              IsOrganciCheckBox(
+              /*IsOrganciCheckBox(
                 onChanged: (value) {
                   isOrganic = value;
                 },
               ),
               const SizedBox(
                 height: 16,
-              ),
+              ),*/
               IsFeaturedCheckBox(
                 onChanged: (value) {
-                  isFeatured = value;
+                  isFavorite = value;
                 },
               ),
               const SizedBox(
