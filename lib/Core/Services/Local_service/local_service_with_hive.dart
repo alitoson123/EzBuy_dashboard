@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/Features/Auth/Data/models/user_model.dart';
+/*import 'package:e_commerce_app/Features/Auth/Data/models/user_model.dart';
 import 'package:e_commerce_app/constant.dart';
 import 'package:hive/hive.dart';
 
@@ -17,3 +17,4 @@ class LocalServiceWithHive {
     await box.delete(currentUser);
   }
 }
+*/

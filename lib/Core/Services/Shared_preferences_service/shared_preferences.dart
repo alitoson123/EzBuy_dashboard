@@ -1,4 +1,4 @@
-import 'package:shared_preferences/shared_preferences.dart';
+/*import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesService {
   static const String isLogin = 'isLogin';
@@ -20,4 +20,4 @@ class SharedPreferencesService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(isLogin);
   }
-}
+}*/

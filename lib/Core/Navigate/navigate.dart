@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/Features/Auth/Forget_Password/Presentation/Views/forget_password_view.dart';
+/* import 'package:e_commerce_app/Features/Auth/Forget_Password/Presentation/Views/forget_password_view.dart';
 import 'package:e_commerce_app/Features/Auth/Sign_in/Presentation/Views/sign_in_view.dart';
 import 'package:e_commerce_app/Features/Auth/Sign_up/Presentation/Views/complete_sign_up_view.dart';
 import 'package:e_commerce_app/Features/Auth/Sign_up/Presentation/Views/sign_up_view.dart';
@@ -7,13 +7,15 @@ import 'package:e_commerce_app/Features/On_Boarding/Presentation/Views/on_boardi
 import 'package:e_commerce_app/Features/Product_details/Presentation/Views/product_details_view.dart';
 import 'package:e_commerce_app/Features/Profile/Presentation/Views/profile_view.dart';
 import 'package:e_commerce_app/Features/Splash/Presentation/Views/splash_view.dart';
-import 'package:e_commerce_app/Features/my_account/Presentation/Views/my_account.dart';
+import 'package:e_commerce_app/Features/my_account/Presentation/Views/my_account.dart'; */
+import 'package:e_commerce_dash_board_app/Features/Add_product/Presentation/Views/add_product_view.dart';
+import 'package:e_commerce_dash_board_app/Features/dashboard/views/dashboard_view.dart';
 import 'package:go_router/go_router.dart';
 
 class Navigate {
   static String KinitialPage = '/';
-  static String KOnBoardingPage = '/OnBoarding';
-  static String KSignInPage = '/SignInPage';
+  static String KAddProductPage = '/AddProduct';
+/*  static String KSignInPage = '/SignInPage';
   static String KForgetPasswordPage = '/ForgetPassword';
   static String KSignUpPage = '/SignUp';
   static String KCompleteSignUpPage = '/CompleteSignUp';
@@ -21,17 +23,17 @@ class Navigate {
   static String KProductDetailsPage = '/ProductDetails';
   static String KProfilePage = '/Profile';
   static String KMyAccountPage = '/MyAccount';
-
+ */
   final GoRouter goRouter = GoRouter(
     routes: [
       GoRoute(
         path: KinitialPage,
-        builder: (context, state) => SplashView(),
+        builder: (context, state) => DashboardView(),
       ),
-      GoRoute(
-        path: KOnBoardingPage,
-        builder: (context, state) => OnBoardingView(),
-      ),
+       GoRoute(
+        path: KAddProductPage,
+        builder: (context, state) => AddProductView(),
+      ),/*
       GoRoute(
         path: KSignInPage,
         builder: (context, state) => SignInView(),
@@ -63,7 +65,7 @@ class Navigate {
       GoRoute(
         path: KMyAccountPage,
         builder: (context, state) => MyAccount(),
-      ),
+      ), */
     ],
   );
 }
