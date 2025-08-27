@@ -1,11 +1,12 @@
 import 'dart:io';
 import 'package:e_commerce_dash_board_app/Core/widgets/custom_button.dart';
 import 'package:e_commerce_dash_board_app/Core/widgets/custom_text_field.dart';
+import 'package:e_commerce_dash_board_app/Features/Add_product/Domain/Etities/add_product_entity.dart';
+import 'package:e_commerce_dash_board_app/Features/Add_product/Presentation/View_model/Add_product_cubit/add_product_cubit.dart';
 import 'package:e_commerce_dash_board_app/Features/Add_product/Presentation/Views/widgets/image_field.dart';
 import 'package:e_commerce_dash_board_app/Features/Add_product/Presentation/Views/widgets/is_featured_check_box.dart';
-import 'package:e_commerce_dash_board_app/Features/Add_product/Presentation/Views/widgets/is_organic_check_box.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddProductViewBody extends StatefulWidget {
   const AddProductViewBody({super.key});
@@ -18,7 +19,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  late String name, code, description , categoryName;
+  late String name, code, description, categoryName;
   late num price;
   File? image;
   bool isFavorite = false;
@@ -52,7 +53,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               ),
               const SizedBox(
                 height: 16,
-              ),CustomTextFormField(
+              ),
+              CustomTextFormField(
                 onSaved: (value) {
                   categoryName = value!;
                 },
@@ -142,7 +144,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   if (image != null) {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                     /* ProductEntity input = ProductEntity(
+                      /* ProductEntity input = ProductEntity(
                         name: name,
                         reviews: [
                           ReviewEntity(
@@ -168,6 +170,19 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                       context.read<AddProductCubit>().addProduct(input);
 
                       */
+
+                      AddProductEntity input = AddProductEntity(
+                          name: name,
+                          price: price,
+                          code: code,
+                          description: description,
+                          category: categoryName,
+                          isFavotite: isFavorite,
+                          image: image);
+
+                      context
+                          .read<AddProductCubit>()
+                          .AddProductCubitMethod(addProductEntity: input);
                     } else {
                       autovalidateMode = AutovalidateMode.always;
                       setState(() {});

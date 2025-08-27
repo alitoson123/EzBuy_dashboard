@@ -1,15 +1,17 @@
 //import 'package:flutter/material.dart';
 
+import 'dart:io';
+
 class AddProductEntity {
   final String name;
-  final String price;
+  final num price;
   //final Color color;
-  final int code;
+  final String code;
   final String description;
   final String category;
   final bool isFavotite;
-  final String image;
-  String imageUrl;
+  final File? image;
+  String? imageUrl;
 
   AddProductEntity(
       {required this.name,
@@ -20,5 +22,5 @@ class AddProductEntity {
       required this.category,
       required this.isFavotite,
       required this.image,
-      required this.imageUrl});
+       this.imageUrl});
 }

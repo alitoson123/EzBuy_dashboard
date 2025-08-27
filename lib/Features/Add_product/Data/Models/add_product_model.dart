@@ -1,15 +1,16 @@
+import 'dart:io';
 import 'package:e_commerce_dash_board_app/Features/Add_product/Domain/Etities/add_product_entity.dart';
 
 class AddProductModel extends AddProductEntity {
   final String name;
-  final String price;
+  final num price;
   //final Color color;
-  final int code;
+  final String code;
   final String description;
   final String category;
   final bool isFavotite;
-  final String image;
-  String imageUrl;
+  final File? image;
+  String? imageUrl;
 
   AddProductModel({
     required this.name,
@@ -19,7 +20,7 @@ class AddProductModel extends AddProductEntity {
     required this.category,
     required this.isFavotite,
     required this.image,
-    required this.imageUrl,
+     this.imageUrl,
   }) : super(
           name: name,
           price: price,
@@ -31,19 +32,29 @@ class AddProductModel extends AddProductEntity {
           imageUrl: imageUrl,
         );
 
+  factory AddProductModel.fromEntity(AddProductEntity addProductEntity) {
+    return AddProductModel(
+      name: addProductEntity.name,
+      price: addProductEntity.price,
+      code: addProductEntity.code,
+      description: addProductEntity.description,
+      category: addProductEntity.category,
+      isFavotite: addProductEntity.isFavotite,
+      image: addProductEntity.image,
+      imageUrl: addProductEntity.imageUrl,
+    );
+  }
 
-    factory AddProductModel.fromEntity(AddProductEntity addProductEntity){
-      return AddProductModel(
-        name: addProductEntity.name,
-        price: addProductEntity.price,
-        code: addProductEntity.code,
-        description: addProductEntity.description,
-        category: addProductEntity.category,
-        isFavotite: addProductEntity.isFavotite,
-        image: addProductEntity.image,
-        imageUrl: addProductEntity.imageUrl,
-      );
-    }
 
-  
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'price': price,
+      'code': code,
+      'description': description,
+      'category': category,
+      'isFavotite': isFavotite,
+      'imageUrl': imageUrl,
+    };
+  }
 }
