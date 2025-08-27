@@ -2,14 +2,22 @@ import 'dart:io';
 import 'package:e_commerce_dash_board_app/Features/Add_product/Domain/Etities/add_product_entity.dart';
 
 class AddProductModel extends AddProductEntity {
+  @override
   final String name;
+  @override
   final num price;
   //final Color color;
+  @override
   final String code;
+  @override
   final String description;
+  @override
   final String category;
+  @override
   final bool isFavotite;
+  @override
   final File? image;
+  @override
   String? imageUrl;
 
   AddProductModel({
@@ -20,7 +28,7 @@ class AddProductModel extends AddProductEntity {
     required this.category,
     required this.isFavotite,
     required this.image,
-     this.imageUrl,
+    this.imageUrl,
   }) : super(
           name: name,
           price: price,
@@ -44,7 +52,6 @@ class AddProductModel extends AddProductEntity {
       imageUrl: addProductEntity.imageUrl,
     );
   }
-
 
   Map<String, dynamic> toMap() {
     return {

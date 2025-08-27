@@ -64,8 +64,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '649199618610',
     projectId: 'ezbuy-103d1',
     storageBucket: 'ezbuy-103d1.firebasestorage.app',
-    androidClientId: '649199618610-q0ar32hctrgugs6hpqlnlbnvj7emaihc.apps.googleusercontent.com',
-    iosClientId: '649199618610-8eqhg94nkpf3pkks0r2j74n2545honsq.apps.googleusercontent.com',
+    androidClientId:
+        '649199618610-q0ar32hctrgugs6hpqlnlbnvj7emaihc.apps.googleusercontent.com',
+    iosClientId:
+        '649199618610-8eqhg94nkpf3pkks0r2j74n2545honsq.apps.googleusercontent.com',
     iosBundleId: 'com.example.eCommerceDashBoardApp',
   );
 
@@ -75,8 +77,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '649199618610',
     projectId: 'ezbuy-103d1',
     storageBucket: 'ezbuy-103d1.firebasestorage.app',
-    androidClientId: '649199618610-q0ar32hctrgugs6hpqlnlbnvj7emaihc.apps.googleusercontent.com',
-    iosClientId: '649199618610-8eqhg94nkpf3pkks0r2j74n2545honsq.apps.googleusercontent.com',
+    androidClientId:
+        '649199618610-q0ar32hctrgugs6hpqlnlbnvj7emaihc.apps.googleusercontent.com',
+    iosClientId:
+        '649199618610-8eqhg94nkpf3pkks0r2j74n2545honsq.apps.googleusercontent.com',
     iosBundleId: 'com.example.eCommerceDashBoardApp',
   );
 

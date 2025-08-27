@@ -17,13 +17,13 @@ class SupabaseStorageService {
     final imageFile = File('$pathOfFolder/$fileName.$Extention');
 
     final String fullPath = await supabase.storage.from('imagesBucket').upload(
-          '${myFile.path}',
+          myFile.path,
           imageFile,
           fileOptions: const FileOptions(cacheControl: '3600', upsert: false),
         );
 
     final Uint8List file =
-        await supabase.storage.from('imagesBucket').download('${myFile.path}');
+        await supabase.storage.from('imagesBucket').download(myFile.path);
 
     return file;
   }

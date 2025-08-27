@@ -9,7 +9,7 @@ import 'firebase_options.dart';
 
 const supabaseUrl = 'https://gojriwndlyerhgloekom.supabase.co';
 const supabaseKey = String.fromEnvironment('SUPABASE_KEY');
-Future<void> main() async  {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -19,24 +19,23 @@ Future<void> main() async  {
   setup();
   Bloc.observer = MyBlocObserver();
 
- // await Hive.initFlutter();
- // Hive.registerAdapter(UserModelAdapter());
- // await Hive.openBox<UserModel>(KUserBox);
+  // await Hive.initFlutter();
+  // Hive.registerAdapter(UserModelAdapter());
+  // await Hive.openBox<UserModel>(KUserBox);
 
   runApp(const EzBuy());
 }
-final supabase = Supabase.instance.client;
 
+final supabase = Supabase.instance.client;
 
 class EzBuy extends StatelessWidget {
   const EzBuy({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerConfig: Navigate().goRouter,
-     
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: Navigate().goRouter,
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:e_commerce_dash_board_app/Core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-
 class CustomCheckBox extends StatelessWidget {
   const CustomCheckBox(
       {super.key, required this.isChecked, required this.onChecked});

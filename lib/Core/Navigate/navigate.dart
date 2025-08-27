@@ -30,10 +30,10 @@ class Navigate {
         path: KinitialPage,
         builder: (context, state) => DashboardView(),
       ),
-       GoRoute(
+      GoRoute(
         path: KAddProductPage,
         builder: (context, state) => AddProductView(),
-      ),/*
+      ), /*
       GoRoute(
         path: KSignInPage,
         builder: (context, state) => SignInView(),

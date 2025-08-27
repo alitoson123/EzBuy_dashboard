@@ -16,11 +16,11 @@ class AddProductEntity {
   AddProductEntity(
       {required this.name,
       required this.price,
-     // required this.color,
+      // required this.color,
       required this.code,
       required this.description,
       required this.category,
       required this.isFavotite,
       required this.image,
-       this.imageUrl});
+      this.imageUrl});
 }
