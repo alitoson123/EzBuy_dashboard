@@ -22,7 +22,7 @@ class SupabaseStorageService {
         );
     final String publicUrl =
         supabase.storage.from('imagesBucket').getPublicUrl(imagePath);
-  
+
     return publicUrl;
   }
 }

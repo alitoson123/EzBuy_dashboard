@@ -14,8 +14,6 @@ class AddProductCubit extends Cubit<AddProductStates> {
     var imageUrl =
         await addProductRepo.uploadImage(myFile: addProductEntity.image!);
 
-    
-
     imageUrl.fold(
       (failed) => emit(
         AddProductFailedState(errMessage: 'There was some thing wrong 1'),
