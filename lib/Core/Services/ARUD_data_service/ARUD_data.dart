@@ -1,15 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ArudData {
-  Future<void> addData(
-      {required String documentName,
-      required Map<String, dynamic> data,
-      required String userUid}) async {
-    var user = FirebaseFirestore.instance.collection(documentName).doc(userUid);
-    user.set(
-      data,
-      SetOptions(merge: true),
-    );
+  Future<void> addData({
+    required String documentName,
+    required Map<String, dynamic> data,
+  }) async {
+    var user = FirebaseFirestore.instance.collection(documentName);
+    user.add(data);
   }
 
   Future<Map<String, dynamic>> getData(

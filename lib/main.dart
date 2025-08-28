@@ -14,8 +14,10 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await Supabase.initialize(url: supabaseUrl, anonKey: supabaseKey);
-
+  await Supabase.initialize(
+    url: 'https://gojriwndlyerhgloekom.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdvanJpd25kbHllcmhnbG9la29tIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NjMyMzM4NiwiZXhwIjoyMDcxODk5Mzg2fQ.qwTDfCF8d8gBHy2_7GnbZXzBKyD1Xs0DizejgGaCXrs',
+  );
   setup();
   Bloc.observer = MyBlocObserver();
 

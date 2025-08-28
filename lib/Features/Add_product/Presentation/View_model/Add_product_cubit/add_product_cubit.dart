@@ -10,16 +10,18 @@ class AddProductCubit extends Cubit<AddProductStates> {
 
   Future<void> AddProductCubitMethod(
       {required AddProductEntity addProductEntity}) async {
-    emit(AddProductInitialState());
     emit(AddProductLoadingState());
     var imageUrl =
         await addProductRepo.uploadImage(myFile: addProductEntity.image!);
+
+    
 
     imageUrl.fold(
       (failed) => emit(
         AddProductFailedState(errMessage: 'There was some thing wrong 1'),
       ),
       (success) async {
+        addProductEntity.imageUrl = success;
         var result =
             await addProductRepo.addProduct(addProductEntity: addProductEntity);
         result.fold(

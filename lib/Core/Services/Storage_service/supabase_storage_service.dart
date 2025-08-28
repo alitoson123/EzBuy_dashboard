@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
 import 'package:e_commerce_dash_board_app/main.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:path/path.dart' as b;
@@ -9,22 +8,21 @@ class SupabaseStorageService {
     final String bucketId = await supabase.storage.createBucket('imagesBucket');
   }
 
-  Future<Uint8List> uploadFile(
+  Future<String> uploadFile(
       {required String pathOfFolder, required File myFile}) async {
     String fileName = b.basename(myFile.path);
     String Extention = b.extension(myFile.path);
 
-    final imageFile = File('$pathOfFolder/$fileName.$Extention');
+    final imagePath = '$pathOfFolder/$fileName.$Extention';
 
-    final String fullPath = await supabase.storage.from('imagesBucket').upload(
-          myFile.path,
-          imageFile,
+    final String imageUrl = await supabase.storage.from('imagesBucket').upload(
+          imagePath,
+          myFile,
           fileOptions: const FileOptions(cacheControl: '3600', upsert: false),
         );
-
-    final Uint8List file =
-        await supabase.storage.from('imagesBucket').download(myFile.path);
-
-    return file;
+    final String publicUrl =
+        supabase.storage.from('imagesBucket').getPublicUrl(imagePath);
+  
+    return publicUrl;
   }
 }
